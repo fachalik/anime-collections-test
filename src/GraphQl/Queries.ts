@@ -33,12 +33,11 @@ export const LoadAnime = gql`
 
 export const LoadAnimeById = gql`
   query ($id: Int) {
-    media(id: $id, type: ANIME, isAdult: false) {
+    Media(id: $id, type: ANIME, isAdult: false) {
       id
       status
-      genres
-      meanScore
       format
+      bannerImage
       coverImage {
         extraLarge
         large
@@ -49,6 +48,25 @@ export const LoadAnimeById = gql`
         romaji
         english
       }
+      popularity
+      description
+      episodes
+      genres
+      meanScore
+      studios {
+        edges {
+          id
+        }
+      }
+    }
+  }
+`
+
+export const LoadStudio = gql`
+  query ($id: Int) {
+    Studio(id: $id) {
+      id
+      name
     }
   }
 `

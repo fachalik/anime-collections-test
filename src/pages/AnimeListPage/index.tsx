@@ -30,10 +30,6 @@ const AnimeListPage = () => {
   })
   const {media, pageInfo} = data?.Page ?? {}
 
-  console.log('search', search)
-
-  console.log('page', page)
-
   return (
     <>
       <input
