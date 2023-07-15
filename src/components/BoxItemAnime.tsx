@@ -2,15 +2,19 @@ import React, {FC} from 'react'
 import {css} from '@emotion/css'
 import {AnimeData} from '@/model/animeList'
 import {truncate} from '@/lib/utilitys'
+import {useNavigate} from 'react-router-dom'
 
 interface IAnimeData {
   data: AnimeData
 }
 
 const BoxItemAnime: FC<IAnimeData> = ({data}) => {
+  const navigate = useNavigate()
   return (
     <div
+      onClick={() => navigate('/detail-anime', {state: data.id})}
       className={css`
+        cursor: pointer;
         position: relative;
         border-radius: 10px;
         margin: 10px;
@@ -33,18 +37,15 @@ const BoxItemAnime: FC<IAnimeData> = ({data}) => {
             overflow: hidden;
             transition: 0.5s all ease-in-out;
             border-radius: 10px;
-            // display: inline-block;
           `}
         >
           <img
             src={data.coverImage.extraLarge}
             className={css`
-              //   overflow: hidden;
               width: 100%;
               height: 100%;
               transition: 0.5s all ease-in-out;
               position: relative;
-              //   z-index: 0;
               transform: scale(1.1);
 
               &:hover {
