@@ -1,6 +1,6 @@
 import {IsNumber, IsString, IsBoolean} from 'class-validator'
 
-export class Pagination {
+export class ModelPagination {
   @IsNumber() total: number
   @IsNumber() currentPage: number
   @IsNumber() lastPage: number
